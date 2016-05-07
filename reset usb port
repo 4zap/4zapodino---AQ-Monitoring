@@ -1,0 +1,30 @@
+For the USB issue with the Logitech webcam (capturing fails after a few snapshots) we  need to reset the USB port where the webcam is connected with.
+Download the following file into your home directory:
+
+'wget -c --no-check-certificate https://gist.githubusercontent.com/x2q/5124616/raw/3f6e5f144efab2bc8e9d02b95b8301e1e0eab669/usbreset.c -O usbreset.c'
+
+compile C to file usbreset
+
+'cc usbreset.c -o usbreset'
+
+make it executeable
+
+'sudo chmod +x usbreset'
+
+now you can execute usbreset with the following command
+
+'sudo ./usbreset /dev/bus/usb/001/009'
+
+this will reset the USB Port 009 on BUS 001. To determine on which port the webcam is connected try:
+'
+bs=`lsusb | grep Logitech | cut -c5-7`
+dve=`lsusb | grep Logitech | cut -c16-18
+echo "Webcam connected to BUS" $bs ", port" $dve
+'
+
+to reset the USB port you can use
+
+'sudo usbreset /dev/bus/usb/$bs/$dve'
+
+This part is already included to the file "start_webcam.sh". There is no need to specifiy this task anymore. this is just to explain how it works.
+

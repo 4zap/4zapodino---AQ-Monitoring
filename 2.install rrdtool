@@ -30,6 +30,6 @@ run the script:
 'sh /etc/rrd/create_db.sh'
 
 you will find a file named hometemp.rrd in the folder /etc/rrd/ after running this script. The first value we read from our sensors will be written 
-with timestamp in our database. From there we can write this value into variables and use them further.
+with timestamp in our database. From there we can write this value into variables and use them further with a simple perl script.
 
 

@@ -1,7 +1,10 @@
 #!/usr/bin/perl
 use LWP::UserAgent;
- 
-my $dir = '/var/www/motion';
+
+
+#home directory databases 
+my $dir = '/etc/rrd';
+#request outside temp. from my hometown
 my $metar_url = 'http://weather.noaa.gov/pub/data/observations/metar/stations/EDDB.TXT';
 my $is_celsius = 1; #set to 1 if using Celsius
  
@@ -14,7 +17,9 @@ my $metar= $response->content();
 $metar =~ /([\s|M])(\d{2})\//g;
 $outtemp = ($1 eq 'M') ? $2 * -1 : $2; #'M' in a METAR report signifies below 0 temps
 $outtemp = ($is_celsius) ? $outtemp + 0 : ($outtemp * 9/5) + 32;
- 
+
+
+#check for probes, set variables 
 $modules = `cat /proc/modules`;
 if ($modules =~ /w1_therm/ && $modules =~ /w1_gpio/)
 {
@@ -25,13 +30,14 @@ else
         $gpio = `sudo modprobe w1-gpio`;
         $therm = `sudo modprobe w1-therm`;
 }
- 
+#empty variables
 $outputAQ1 = "";
 $outputAQ2 = "";
 $outputAQ3 = "";
 $outputAQ4 = "";
 $outputAQ5 = "";
 $attempts = 0;
+#request values from probes (make sure you have your own serials from your probes entered here - 28-0xxxxxx) 
 while ($outputAQ1 !~ /YES/g && $attempts < 5)
 {
         $outputAQ1 = `sudo cat /sys/bus/w1/devices/28-0316026252ff/w1_slave 2>&1`;

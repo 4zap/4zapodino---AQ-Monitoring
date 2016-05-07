@@ -1,0 +1,3 @@
+for an correct number output we need a "calculator" ;) Install the binary calculator to get the right results.
+
+'sudo apt-get install bc'

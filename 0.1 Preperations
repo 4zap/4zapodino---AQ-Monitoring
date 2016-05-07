@@ -13,3 +13,18 @@ The scripts used for the webcam snapshots using fswebcam. Easy to use. Install i
 The scripts used for the power switch control are based on a gembird controlled device that requires the sispmctl package installed to control the switches.
 
 I am still experiencing issues in the running processes, based on longterm behaviors of the wheezy.
+
+
+A list of hardware i use:
+
+- raspberry pi2
+- 32Gb SD Card class 10
+- Ehternet 100mbit/s Internetconnection
+- Logitech C300 USB Webcam
+- DS18B20 Probes, waterproof, 3m wire
+- Gembird EG-PMS2 Power Switch
+- EC probe with BNC connector
+- pH probe with BNC connector
+- sparkywidget microcontrollerboad 
+
+The configuration described here in this repository does not work unmodified on an Jessie Distribution!!!!!!!

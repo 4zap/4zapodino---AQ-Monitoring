@@ -25,7 +25,7 @@ if [ $? != 0 ]
 		echo "ok...checking network connection ... WiFi seems up."           
 fi
 
-#upload image with curl ftp to the public webserver
+#upload image with curl ftp to the public webserver, edit ftpuser -> your ftp username -> ftppassword -> your ftp password ->yourdomain
 	echo "connecting to public webserver... submitting last shot..."
 		sleep 1                                  
 			curl -T /var/www/motion/lastpic.jpg  ftp://ftpuser:ftppassword@yourdomain.fr/lastpic.jpg

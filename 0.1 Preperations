@@ -1,0 +1,15 @@
+Preperations for the use of this code:
+
+- this app is developed on a rapsberry pi2 with an raspian wheezy installed
+- make sure your raspian is up to date and your firmware is actual
+'sudo apt-get update'
+'sudo apt-get rpi-update'
+
+If you get asked for reboot, do it.
+
+The scripts used for the webserver requires an apache 2.2.22 with php and mysql installed.
+The scripts used for the temperature probes based on perl and wgpio. Make sure you have the package installed.
+The scripts used for the webcam snapshots using fswebcam. Easy to use. Install it. There is no add. configuration needed.
+The scripts used for the power switch control are based on a gembird controlled device that requires the sispmctl package installed to control the switches.
+
+I am still experiencing issues in the running processes, based on longterm behaviors of the wheezy.

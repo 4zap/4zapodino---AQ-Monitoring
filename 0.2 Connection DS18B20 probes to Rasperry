@@ -1,0 +1,6 @@
+Connecting the probes to the raspberrys GPIO Ports is easy. I use 5 waterproof BS18B20 sensors with a 3m cable without problems.
+
+follow this instruction to connect your probes to your GPIO ports:
+
+http://www.d3noob.org/2015/02/raspberry-pi-multiple-temperature.html
+

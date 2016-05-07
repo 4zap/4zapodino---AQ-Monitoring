@@ -1,0 +1,17 @@
+This is the list of the automated tasks. It includes the control of all electric devices using the power switch (chapt.3)
+this text is a copy of the used crontab ('sudo crontab -e')
+
+
+# m h  dom mon dow   command
+
+
+00 8 * * * sudo sispmctl -o 4 #power on plug 4
+30 9 * * * sudo sispmctl -o 1  #power on plug 1
+00 20 * * * sudo sispmctl -f 1  #power off plug 1
+30 22 * * *  sudo sispmctl -f 4  #power off plug 4
+59 23 * * * sudo sispmctl -o 3 #power on plug 3
+00 3 * * * sudo reboot       # reboot pi every night
+
+@reboot /etc/start_webcam.sh &          # start webcam snapshots with start_webcam.sh after reboot
+@reboot /etc/rdd/create_graph.sh &      # start temperature measurement and create images after reboot    
+@reboot /etc/steckdosen.sh &            # start webinterface of the gembird power switch bar after reboot  

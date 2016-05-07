@@ -1,0 +1,38 @@
+#For the control of the power switches i use a 4-channel gembirg device with an USB Port (GEM EG-PM2). It is cheap and works reliable since 2 years.
+#Thats the main cause i use them. There a lot of ways to control power switches but this is the easiest way with the minimum amount of cables and boards.
+
+#First we download the package:
+
+'wget https://sourceforge.net/projects/sispmctl/files/sispmctl/sispmctl-3.1/sispmctl-3.1.tar.gz'
+
+#unpack it
+
+'tar xzvf sispm_ctl-*.tar.gz'
+
+#compile the sispmctl
+
+'cd sispm_ctl-*'
+
+'./configure'
+
+'make'
+
+'sudo make install'
+
+#To make a control possible we need to install the libusb-dev paket.
+
+'sudo apt-get install libusb-dev'
+
+#Connect the gembird switch with an USB A cable to a USB port of your raspberry.
+# control your power switches now with the following commands
+
+sudo sispmctl -o 4
+
+# the flag -o 4 means switch on the plug 4.
+
+sudo sispmctl -f 3
+
+# switch off power plug 3 with the flag -f 3
+
+# i use this command in the crontab to control the switch times of my devices.(see 4.0 automate tasks... In some cases it is usefull to use this command for 
+# emergency shutoffs. I plan the use of sensors that are able to monitor the water levels and switch off the pumps if something went wrong. lets see what happen

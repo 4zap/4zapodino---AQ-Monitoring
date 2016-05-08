@@ -1,0 +1,13 @@
+#if the file sispmctl is compiled you can start a webservice to switch the plug manually.
+#start this interface with the binding to your IP address and the IP port (in this case port 8080)
+
+'sudo sispmctl -i 192.168.1.1 -p 8080m -l'
+
+
+Web server will bind on interface with IP 192.168.1.1
+Server will listen on port 8080.
+Server goes to listen mode now.
+Try to bind to 192.168.1.1
+
+When you now open http://192.168.1.1:8080 in your browser you will see the 4 channel plug and can manually control the power off and power on of every plug.
+
